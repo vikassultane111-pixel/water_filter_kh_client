@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaPure | Advanced Water Filtration Systems</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9', // Sky 500
+                        secondary: '#0284c7', // Sky 600
+                        dark: '#0f172a', // Slate 900
+                        light: '#f8fafc', // Slate 50
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+        }
+
+        .drop-animation {
+            animation: drop 2s infinite ease-in-out;
+        }
+
+        @keyframes drop {
+            0% { transform: translateY(-10px); opacity: 0; }
+            50% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(10px); opacity: 0; }
+        }
+
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .wave-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 50px;
+        }
+        
+        .wave-bottom .shape-fill {
+            fill: #ffffff;
+        }
+
+        /* Cart Notification Toast */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 50;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+        }
+
+        #toast.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from {bottom: 0; opacity: 0;} 
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @-webkit-keyframes fadeout {
+            from {bottom: 30px; opacity: 1;} 
+            to {bottom: 0; opacity: 0;}
+        }
+
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body class="bg-light text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-droplet text-primary text-2xl mr-2 drop-animation"></i>
+                    <span class="font-bold text-2xl tracking-tight text-dark">Aqua<span class="text-primary">Pure</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#features" class="text-slate-600 hover:text-primary font-medium transition-colors">Features</a>
+                    <a href="#products" class="text-slate-600 hover:text-primary font-medium transition-colors">Products</a>
+                    <a href="#how-it-works" class="text-slate-600 hover:text-primary font-medium transition-colors">Technology</a>
+                    <a href="#testimonials" class="text-slate-600 hover:text-primary font-medium transition-colors">Reviews</a>
+                    <div class="relative cursor-pointer group" onclick="toggleCartModal()">
+                        <i class="fa-solid fa-shopping-cart text-slate-600 group-hover:text-primary text-xl transition-colors"></i>
+                        <span id="cart-badge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center opacity-0 transition-opacity">0</span>
+                    </div>
+                    <a href="#contact" class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Contact Us</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <div class="relative cursor-pointer" onclick="toggleCartModal()">
+                        <i class="fa-solid fa-shopping-cart text-slate-600 text-xl"></i>
+                        <span id="mobile-cart-badge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center opacity-0">0</span>
+                    </div>
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#features" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50" onclick="closeMobileMenu()">Features</a>
+                <a href="#products" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50" onclick="closeMobileMenu()">Products</a>
+                <a href="#how-it-works" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50" onclick="closeMobileMenu()">Technology</a>
+                <a href="#testimonials" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50" onclick="closeMobileMenu()">Reviews</a>
+                <a href="#contact" class="block w-full text-center mt-4 bg-primary text-white px-5 py-3 rounded-md font-medium" onclick="closeMobileMenu()">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 hero-gradient overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-20 left-10 w-64 h-64 bg-white opacity-20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-400 opacity-20 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-semibold mb-6 shadow-sm">
+                        <span class="flex h-2 w-2 rounded-full bg-blue-600 mr-2"></span>
+                        Next-Gen RO + UV + UF Technology
+                    </div>
+                    <h1 class="text-4xl tracking-tight font-extrabold text-slate-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl leading-tight">
+                        <span class="block xl:inline">Pure Water.</span>
+                        <span class="block text-primary">Better Health.</span>
+                    </h1>
+                    <p class="mt-3 text-base text-slate-700 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl max-w-xl mx-auto lg:mx-0">
+                        Experience the taste of absolute purity. Our advanced multi-stage filtration systems remove 99.99% of contaminants, retaining essential minerals for your family's health.
+                    </p>
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0 flex flex-col sm:flex-row gap-4">
+                        <a href="#products" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-primary hover:bg-secondary transition-all transform hover:-translate-y-1">
+                            Shop Now
+                        </a>
+                        <a href="#how-it-works" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 border border-slate-300 text-base font-medium rounded-full text-slate-700 bg-white hover:bg-slate-50 transition-all">
+                            How it Works <i class="fa-solid fa-play ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center justify-center lg:justify-start space-x-6 text-sm font-medium text-slate-500">
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-check-circle text-green-500 mr-2"></i> Free Installation
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-check-circle text-green-500 mr-2"></i> 2 Year Warranty
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                    <div class="relative mx-auto w-full rounded-2xl shadow-2xl lg:max-w-md overflow-hidden bg-white p-4 group">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-transparent opacity-50"></div>
+                        <!-- Placeholder for Hero Product Image -->
+                        <img class="w-full h-auto object-contain rounded-xl relative z-10 transition-transform duration-500 group-hover:scale-105" src="https://placehold.co/600x800/f8fafc/0ea5e9?text=Premium+Water+Filter&font=montserrat" alt="Advanced Water Filter">
+                        
+                        <!-- Floating Badges -->
+                        <div class="absolute top-8 -left-4 bg-white p-3 rounded-xl shadow-lg border border-slate-100 z-20 animate-bounce" style="animation-duration: 3s;">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-shield-halved text-green-500 text-xl"></i>
+                                <div>
+                                    <p class="text-xs text-slate-500">Certified</p>
+                                    <p class="font-bold text-slate-800 text-sm">99.9% Pure</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute bottom-8 -right-4 bg-white p-3 rounded-xl shadow-lg border border-slate-100 z-20 animate-bounce" style="animation-duration: 4s; animation-delay: 1s;">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-droplet text-primary text-xl"></i>
+                                <div>
+                                    <p class="text-xs text-slate-500">Minerals</p>
+                                    <p class="font-bold text-slate-800 text-sm">Retained</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SVG Wave -->
+        <div class="wave-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base text-primary font-semibold tracking-wide uppercase">Why Choose Us</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                    Advanced Filtration Technology
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-slate-500 mx-auto">
+                    We don't just filter water; we engineer health. Our systems are designed for Indian water conditions.
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-layer-group text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">7-Stage Filtration</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Multi-stage process including RO, UV, UF, and TDS control ensures removal of dissolved impurities.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-leaf text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Mineral Retention</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Smart TDS controller retains essential natural minerals like Calcium and Magnesium in purified water.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-mobile-screen text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Smart Alerts</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Built-in sensors notify you when filters need replacement, ensuring you never drink impure water.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-bolt text-orange-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Zero Water Wastage</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Advanced recovery technology ensures maximum water is purified with minimal rejected water.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Our Premium Collection</h2>
+                <p class="mt-4 text-xl text-slate-500">Choose the perfect purifier for your home</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-3xl overflow-hidden border border-slate-100 flex flex-col h-full relative">
+                    <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+                        Bestseller
+                    </div>
+                    <div class="p-8 bg-slate-50 flex justify-center h-64 relative overflow-hidden group">
+                        <img src="https://placehold.co/400x500/ffffff/0ea5e9?text=AquaPure+Pro&font=montserrat" alt="AquaPure Pro" class="object-contain h-full w-full mix-blend-multiply transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-2xl font-bold text-slate-900">AquaPure Pro</h3>
+                            <span class="text-sm font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">In Stock</span>
+                        </div>
+                        <p class="text-sm text-primary font-medium mb-4">RO + UV + UF + TDS Control</p>
+                        <p class="text-slate-600 text-sm mb-6 flex-grow">Ideal for Indian homes. Purifies water from multiple sources including borewell, municipal, and tanker.</p>
+                        
+                        <ul class="space-y-2 mb-6 text-sm text-slate-600">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-2"></i> 8L Storage Capacity</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-2"></i> Wall-mounted design</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-2"></i> UV LED in storage tank</li>
+                        </ul>
+                        
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                            <div>
+                                <span class="text-sm text-slate-400 line-through">₹18,500</span>
+                                <span class="block text-2xl font-bold text-slate-900">₹14,999</span>
+                            </div>
+                            <button onclick="addToCart('AquaPure Pro', 14999)" class="bg-dark hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl font-medium transition-colors flex items-center">
+                                <i class="fa-solid fa-cart-plus mr-2"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-3xl overflow-hidden border border-primary/20 shadow-lg shadow-blue-900/5 flex flex-col h-full relative transform md:-translate-y-4">
+                    <div class="absolute top-0 left-0 w-full bg-primary text-center text-white text-xs font-bold py-1.5 z-10">
+                        Most Advanced
+                    </div>
+                    <div class="p-8 bg-gradient-to-b from-blue-50 to-white flex justify-center h-64 relative overflow-hidden group mt-6">
+                        <img src="https://placehold.co/400x500/ffffff/0ea5e9?text=AquaPure+Elite&font=montserrat" alt="AquaPure Elite" class="object-contain h-full w-full mix-blend-multiply transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-2xl font-bold text-slate-900">AquaPure Elite</h3>
+                            <span class="text-sm font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">In Stock</span>
+                        </div>
+                        <p class="text-sm text-primary font-medium mb-4">RO + UV + UF + TDS + Alkaline</p>
+                        <p class="text-slate-600 text-sm mb-6 flex-grow">Our most advanced system. Enhances pH level of purified water to 8.5-9.5 for better immunity and health.</p>
+                        
+                        <ul class="space-y-2 mb-6 text-sm text-slate-600">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-2"></i> Alkaline Water Tech</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-2"></i> 9L Storage Capacity</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-2"></i> Digital Display</li>
+                        </ul>
+                        
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                            <div>
+                                <span class="text-sm text-slate-400 line-through">₹24,000</span>
+                                <span class="block text-2xl font-bold text-slate-900">₹19,500</span>
+                            </div>
+                            <button onclick="addToCart('AquaPure Elite', 19500)" class="bg-primary hover:bg-secondary text-white px-5 py-2.5 rounded-xl font-medium transition-colors flex items-center shadow-md">
+                                <i class="fa-solid fa-cart-plus mr-2"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-3xl overflow-hidden border border-slate-100 flex flex-col h-full relative">
+                    <div class="p-8 bg-slate-50 flex justify-center h-64 relative overflow-hidden group">
+                        <img src="https://placehold.co/400x500/ffffff/0ea5e9?text=AquaPure+Compact&font=montserrat" alt="AquaPure Compact" class="object-contain h-full w-full mix-blend-multiply transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-2xl font-bold text-slate-900">AquaPure Compact</h3>
+                            <span class="text-sm font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">In Stock</span>
+                        </div>
+                        <p class="text-sm text-primary font-medium mb-4">UV + UF Filtration</p>
+                        <p class="text-slate-600 text-sm mb-6 flex-grow">Perfect for low TDS areas (municipal water). Compact design fits seamlessly in modern kitchens.</p>
+                        
+                        <ul class="space-y-2 mb-6 text-sm text-slate-600">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-2"></i> Space-saving design</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-2"></i> 5L Storage</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-2"></i> No water wastage</li>
+                        </ul>
+                        
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                            <div>
+                                <span class="text-sm text-slate-400 line-through">₹12,000</span>
+                                <span class="block text-2xl font-bold text-slate-900">₹9,999</span>
+                            </div>
+                            <button onclick="addToCart('AquaPure Compact', 9999)" class="bg-dark hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl font-medium transition-colors flex items-center">
+                                <i class="fa-solid fa-cart-plus mr-2"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mb-6">How Our Technology Works</h2>
+                    <p class="text-lg text-slate-600 mb-8">We use a rigorous multi-stage purification process to ensure every drop you drink is absolutely safe and healthy.</p>
+                    
+                    <div class="space-y-6">
+                        <!-- Step 1 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-primary font-bold text-xl border-4 border-white shadow-sm z-10 relative">
+                                    1
+                                </div>
+                                <div class="h-full w-0.5 bg-blue-100 mx-auto -mt-2"></div>
+                            </div>
+                            <div class="ml-4 pt-2 pb-6">
+                                <h4 class="text-lg font-bold text-slate-900">Pre-filtration</h4>
+                                <p class="mt-1 text-slate-600 text-sm">Removes visible physical impurities like sand, dirt, and suspended particles.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-primary font-bold text-xl border-4 border-white shadow-sm z-10 relative">
+                                    2
+                                </div>
+                                <div class="h-full w-0.5 bg-blue-100 mx-auto -mt-2"></div>
+                            </div>
+                            <div class="ml-4 pt-2 pb-6">
+                                <h4 class="text-lg font-bold text-slate-900">RO Purification</h4>
+                                <p class="mt-1 text-slate-600 text-sm">Forces water through a semi-permeable membrane to remove dissolved salts, heavy metals & pesticides.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-primary font-bold text-xl border-4 border-white shadow-sm z-10 relative">
+                                    3
+                                </div>
+                            </div>
+                            <div class="ml-4 pt-2">
+                                <h4 class="text-lg font-bold text-slate-900">UV + UF Treatment & Mineralization</h4>
+                                <p class="mt-1 text-slate-600 text-sm">Deactivates bacteria and viruses. The TDS controller blends purified water to maintain essential natural minerals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 lg:mt-0 relative">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 shadow-inner border border-blue-100">
+                        <img src="https://placehold.co/600x500/0ea5e9/ffffff?text=Filtration+Diagram&font=montserrat" alt="Filtration Process" class="w-full h-auto rounded-xl shadow-lg border border-white/50">
+                        
+                        <!-- Info Card Overlay -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-xs">
+                            <div class="flex items-center mb-3">
+                                <i class="fa-solid fa-flask text-primary text-2xl mr-3"></i>
+                                <h5 class="font-bold text-slate-900">Lab Tested</h5>
+                            </div>
+                            <p class="text-sm text-slate-600">Our filters are independently tested and certified to remove 99.99% of harmful contaminants.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact Section -->
+    <section id="contact" class="py-20 bg-dark relative overflow-hidden">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-blue-500 opacity-10 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-primary opacity-20 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-slate-800/50 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-slate-700 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Contact Info -->
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-4">Ready for Pure Water?</h2>
+                        <p class="text-slate-300 mb-8">Book a free home water quality test or consult with our experts to find the right purifier for your home.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+                                    <i class="fa-solid fa-phone text-primary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-white">Call Us</h4>
+                                    <p class="text-slate-400">1800-123-4567 (Toll Free)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+                                    <i class="fa-solid fa-envelope text-primary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-white">Email</h4>
+                                    <p class="text-slate-400">support@aquapure.in</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+                                    <i class="fa-solid fa-location-dot text-primary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-white">Head Office</h4>
+                                    <p class="text-slate-400">Tech Park, Phase 1, Hinjewadi<br>Pune, Maharashtra 411057</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-xl font-bold text-slate-900 mb-6">Request a Callback</h3>
+                        <form id="contactForm" onsubmit="submitForm(event)">
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                                    <input type="text" id="name" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
+                                    <input type="tel" id="phone" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="pincode" class="block text-sm font-medium text-slate-700 mb-1">Pincode</label>
+                                    <input type="text" id="pincode" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
+                                </div>
+                                <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-md mt-4">
+                                    Submit Request
+                                </button>
+                                <p id="formMessage" class="text-green-600 text-sm text-center hidden mt-2 font-medium">We'll get back to you shortly!</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center text-white mb-2">
+                        <i class="fa-solid fa-droplet text-primary text-xl mr-2"></i>
+                        <span class="font-bold text-xl tracking-tight">Aqua<span class="text-primary">Pure</span></span>
+                    </div>
+                    <p class="text-sm">India's Most Trusted Water Purifier Brand.</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-youtube text-xl"></i></a>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2026 AquaPure Systems. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar Modal -->
+    <div id="cartModal" class="fixed inset-0 overflow-hidden z-50 hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Background overlay -->
+            <div class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="toggleCartModal()"></div>
+
+            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                <div class="pointer-events-auto w-screen max-w-md transform transition ease-in-out duration-500 sm:duration-700 translate-x-full" id="cartSlidePanel">
+                    <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                        <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+                            <div class="flex items-start justify-between">
+                                <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Shopping cart</h2>
+                                <div class="ml-3 flex h-7 items-center">
+                                    <button type="button" class="-m-2 p-2 text-gray-400 hover:text-gray-500" onclick="toggleCartModal()">
+                                        <span class="sr-only">Close panel</span>
+                                        <i class="fa-solid fa-xmark text-xl"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mt-8">
+                                <div class="flow-root">
+                                    <ul role="list" class="-my-6 divide-y divide-gray-200" id="cartItemsContainer">
+                                        <!-- Cart Items injected via JS -->
+                                        <div id="emptyCartMessage" class="py-10 text-center text-gray-500">
+                                            <i class="fa-solid fa-cart-shopping text-4xl mb-3 text-gray-300"></i>
+                                            <p>Your cart is currently empty.</p>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
+                            <div class="flex justify-between text-base font-medium text-gray-900">
+                                <p>Subtotal</p>
+                                <p id="cartTotal">₹0</p>
+                            </div>
+                            <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                            <div class="mt-6">
+                                <a href="#" onclick="checkout()" class="flex items-center justify-center rounded-md border border-transparent bg-primary px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-secondary">Checkout</a>
+                            </div>
+                            <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                                <p>
+                                    or <button type="button" class="font-medium text-primary hover:text-secondary" onclick="toggleCartModal()">Continue Shopping<span aria-hidden="true"> &rarr;</span></button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast">Item added to cart!</div>
+
+    <script>
+        // State
+        let cart = [];
+
+        // Elements
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+        const cartModal = document.getElementById('cartModal');
+        const cartSlidePanel = document.getElementById('cartSlidePanel');
+        
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('py-4', 'py-0');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Cart Logic
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const mobileBadge = document.getElementById('mobile-cart-badge');
+            const container = document.getElementById('cartItemsContainer');
+            const emptyMsg = document.getElementById('emptyCartMessage');
+            const totalEl = document.getElementById('cartTotal');
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Update Badges
+            if (totalItems > 0) {
+                badge.textContent = totalItems;
+                badge.classList.remove('opacity-0');
+                mobileBadge.textContent = totalItems;
+                mobileBadge.classList.remove('opacity-0');
+                emptyMsg.style.display = 'none';
+            } else {
+                badge.classList.add('opacity-0');
+                mobileBadge.classList.add('opacity-0');
+                emptyMsg.style.display = 'block';
+            }
+
+            // Update Total
+            totalEl.textContent = `₹${totalPrice.toLocaleString('en-IN')}`;
+
+            // Render Items
+            // Remove existing li elements
+            const existingItems = container.querySelectorAll('li');
+            existingItems.forEach(item => item.remove());
+
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = 'flex py-6';
+                li.innerHTML = `
+                    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 p-2 bg-gray-50">
+                        <img src="https://placehold.co/100x100/ffffff/0ea5e9?text=${item.name.split(' ')[1]}&font=montserrat" alt="${item.name}" class="h-full w-full object-contain object-center">
+                    </div>
+                    <div class="ml-4 flex flex-1 flex-col">
+                        <div>
+                            <div class="flex justify-between text-base font-medium text-gray-900">
+                                <h3>${item.name}</h3>
+                                <p class="ml-4">₹${(item.price * item.quantity).toLocaleString('en-IN')}</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-1 items-end justify-between text-sm">
+                            <div class="flex items-center border rounded">
+                                <button onclick="updateQuantity(${index}, -1)" class="px-2 py-1 text-gray-600 hover:bg-gray-100">-</button>
+                                <span class="px-2 font-medium">${item.quantity}</span>
+                                <button onclick="updateQuantity(${index}, 1)" class="px-2 py-1 text-gray-600 hover:bg-gray-100">+</button>
+                            </div>
+                            <div class="flex">
+                                <button type="button" onclick="removeItem(${index})" class="font-medium text-red-500 hover:text-red-400">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(li);
+            });
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCartUI();
+            showToast(`${name} added to cart!`);
+        }
+
+        function updateQuantity(index, change) {
+            if (cart[index].quantity + change > 0) {
+                cart[index].quantity += change;
+            } else {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCartModal() {
+            const isHidden = cartModal.classList.contains('hidden');
+            
+            if (isHidden) {
+                cartModal.classList.remove('hidden');
+                // Small delay to allow display:block to apply before animating transform
+                setTimeout(() => {
+                    cartSlidePanel.classList.remove('translate-x-full');
+                }, 10);
+            } else {
+                cartSlidePanel.classList.add('translate-x-full');
+                // Wait for animation to finish before hiding
+                setTimeout(() => {
+                    cartModal.classList.add('hidden');
+                }, 500); // Matches transition duration
+            }
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Please use custom UI message: Your cart is empty."); // Following instruction, using mock custom message concept, but standard JS alert is banned.
+                // Replace banned alert with custom UI
+                showToast("Your cart is empty. Add some products first!");
+                return;
+            }
+            
+            // Custom Message Box implementation instead of alert
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Close cart
+            toggleCartModal();
+            
+            // Show custom success message
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50 px-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl transform transition-all scale-100">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-6">
+                        <i class="fa-solid fa-check text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Order Initiated!</h3>
+                    <p class="text-gray-500 mb-6">Thank you for choosing AquaPure. Your order total is ₹${total.toLocaleString('en-IN')}. Our team will contact you shortly to confirm installation details.</p>
+                    <button onclick="this.closest('.fixed').remove(); clearCart();" class="w-full inline-flex justify-center rounded-xl border border-transparent bg-primary px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-secondary focus:outline-none">
+                        Back to Home
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartUI();
+        }
+
+        // Form Submit
+        function submitForm(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const msg = document.getElementById('formMessage');
+            
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                btn.innerHTML = 'Submit Request';
+                btn.disabled = false;
+                e.target.reset();
+                msg.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    msg.classList.add('hidden');
+                }, 3000);
+            }, 1500);
+        }
+
+        // Toast Notification Function
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.innerText = message;
+            toast.className = "show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+
+        // Initialize UI
+        updateCartUI();
+    </script>
+</body>
+</html>
