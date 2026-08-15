@@ -15,6 +15,7 @@
                         secondary: '#0284c7', // Sky 600
                         dark: '#0f172a', // Slate 900
                         light: '#f8fafc', // Slate 50
+                        gold: '#fbbf24', // Amber 400 for premium accents
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -195,11 +196,11 @@
                         Experience the taste of absolute purity. Our advanced multi-stage filtration systems remove 99.99% of contaminants, retaining essential minerals for your family's health.
                     </p>
                     <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0 flex flex-col sm:flex-row gap-4">
-                        <a href="#products" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-primary hover:bg-secondary transition-all transform hover:-translate-y-1">
+                        <a href="#products" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary transition-all transform hover:-translate-y-1">
                             Shop Now
                         </a>
-                        <a href="#how-it-works" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 border border-slate-300 text-base font-medium rounded-full text-slate-700 bg-white hover:bg-slate-50 transition-all">
-                            How it Works <i class="fa-solid fa-play ml-2 text-sm"></i>
+                        <a href="#how-it-works" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 border border-slate-200 text-base font-medium rounded-full text-slate-700 bg-white/80 backdrop-blur-sm hover:bg-white transition-all shadow-sm">
+                            How it Works <i class="fa-solid fa-play ml-2 text-sm text-primary"></i>
                         </a>
                     </div>
                     <div class="mt-8 flex items-center justify-center lg:justify-start space-x-6 text-sm font-medium text-slate-500">
@@ -316,9 +317,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Product 1 -->
-                <div class="product-card bg-white rounded-3xl overflow-hidden border border-slate-100 flex flex-col h-full relative">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
-                        Bestseller
+                <div class="product-card bg-white rounded-3xl overflow-hidden border border-slate-100 flex flex-col h-full relative shadow-sm hover:shadow-xl hover:shadow-blue-900/5">
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-gold to-yellow-500 text-slate-900 text-xs font-bold px-4 py-1.5 rounded-full z-10 shadow-md">
+                        <i class="fa-solid fa-crown mr-1"></i> Bestseller
                     </div>
                     <div class="p-0 bg-slate-50 flex justify-center h-64 relative overflow-hidden group">
                         <img src="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&q=80&w=500" alt="AquaPure Pro" class="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110">
@@ -342,7 +343,7 @@
                                 <span class="text-sm text-slate-400 line-through">₹18,500</span>
                                 <span class="block text-2xl font-bold text-slate-900">₹14,999</span>
                             </div>
-                            <button onclick="addToCart('AquaPure Pro', 14999)" class="bg-dark hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl font-medium transition-colors flex items-center">
+                            <button onclick="addToCart('AquaPure Pro', 14999)" class="bg-dark hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl font-medium transition-colors flex items-center shadow-md">
                                 <i class="fa-solid fa-cart-plus mr-2"></i> Add
                             </button>
                         </div>
@@ -350,9 +351,9 @@
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card bg-white rounded-3xl overflow-hidden border border-primary/20 shadow-lg shadow-blue-900/5 flex flex-col h-full relative transform md:-translate-y-4">
-                    <div class="absolute top-0 left-0 w-full bg-primary text-center text-white text-xs font-bold py-1.5 z-10">
-                        Most Advanced
+                <div class="product-card bg-white rounded-3xl overflow-hidden border border-primary/20 shadow-xl shadow-blue-900/10 flex flex-col h-full relative transform md:-translate-y-4">
+                    <div class="absolute top-0 left-0 w-full bg-gradient-to-r from-slate-900 to-slate-800 text-center text-gold text-xs font-bold py-2 z-10 tracking-widest uppercase">
+                        ★ Most Advanced ★
                     </div>
                     <div class="p-0 bg-gradient-to-b from-blue-50 to-white flex justify-center h-64 relative overflow-hidden group mt-6">
                         <img src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?auto=format&fit=crop&q=80&w=500" alt="AquaPure Elite" class="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110">
@@ -376,7 +377,7 @@
                                 <span class="text-sm text-slate-400 line-through">₹24,000</span>
                                 <span class="block text-2xl font-bold text-slate-900">₹19,500</span>
                             </div>
-                            <button onclick="addToCart('AquaPure Elite', 19500)" class="bg-primary hover:bg-secondary text-white px-5 py-2.5 rounded-xl font-medium transition-colors flex items-center shadow-md">
+                            <button onclick="addToCart('AquaPure Elite', 19500)" class="bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white px-5 py-2.5 rounded-xl font-medium transition-all flex items-center shadow-md">
                                 <i class="fa-solid fa-cart-plus mr-2"></i> Add
                             </button>
                         </div>
@@ -384,7 +385,7 @@
                 </div>
 
                 <!-- Product 3 -->
-                <div class="product-card bg-white rounded-3xl overflow-hidden border border-slate-100 flex flex-col h-full relative">
+                <div class="product-card bg-white rounded-3xl overflow-hidden border border-slate-100 flex flex-col h-full relative shadow-sm hover:shadow-xl hover:shadow-blue-900/5">
                     <div class="p-0 bg-slate-50 flex justify-center h-64 relative overflow-hidden group">
                         <img src="https://images.unsplash.com/photo-1517502474169-281b37628f3a?auto=format&fit=crop&q=80&w=500" alt="AquaPure Compact" class="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110">
                     </div>
@@ -407,7 +408,7 @@
                                 <span class="text-sm text-slate-400 line-through">₹12,000</span>
                                 <span class="block text-2xl font-bold text-slate-900">₹9,999</span>
                             </div>
-                            <button onclick="addToCart('AquaPure Compact', 9999)" class="bg-dark hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl font-medium transition-colors flex items-center">
+                            <button onclick="addToCart('AquaPure Compact', 9999)" class="bg-dark hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl font-medium transition-colors flex items-center shadow-md">
                                 <i class="fa-solid fa-cart-plus mr-2"></i> Add
                             </button>
                         </div>
@@ -480,6 +481,123 @@
                                 <h5 class="font-bold text-slate-900">Lab Tested</h5>
                             </div>
                             <p class="text-sm text-slate-600">Our filters are independently tested and certified to remove 99.99% of harmful contaminants.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Reviews Section -->
+    <section id="testimonials" class="py-20 bg-slate-50 relative overflow-hidden">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-blue-100 opacity-50 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-blue-200 opacity-30 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-base text-primary font-semibold tracking-wide uppercase">Reviews</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                    What Our Customers Say
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-slate-500 mx-auto">
+                    Trusted by thousands of happy families across India. Here is what they have to say about their AquaPure experience.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1: Shankar Bagale -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 relative group">
+                    <i class="fa-solid fa-quote-left text-4xl text-blue-50 absolute top-6 right-8 group-hover:text-blue-100 transition-colors"></i>
+                    <div class="flex items-center space-x-1 mb-4 text-gold">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-6 relative z-10">"Excellent product! The water tastes much better now. Installation was quick and the service team was very polite and professional."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 text-primary flex items-center justify-center font-bold text-lg">SB</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-slate-900">Shankar Bagale</h4>
+                            <p class="text-sm text-slate-500">Pune, Maharashtra</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2: Vikas Sultane -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 relative group">
+                    <i class="fa-solid fa-quote-left text-4xl text-blue-50 absolute top-6 right-8 group-hover:text-blue-100 transition-colors"></i>
+                    <div class="flex items-center space-x-1 mb-4 text-gold">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-6 relative z-10">"Using AquaPure Elite for a month now. The alkaline feature is great, and my family loves it. Highly recommended for everyone."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold text-lg">VS</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-slate-900">Vikas Sultane</h4>
+                            <p class="text-sm text-slate-500">Mumbai, Maharashtra</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3: Priya Sharma -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 relative group">
+                    <i class="fa-solid fa-quote-left text-4xl text-blue-50 absolute top-6 right-8 group-hover:text-blue-100 transition-colors"></i>
+                    <div class="flex items-center space-x-1 mb-4 text-gold">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-6 relative z-10">"Best investment for our new home. The sleek design of the Compact model fits perfectly in our kitchen. Zero water wastage is a big plus!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-lg">PS</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-slate-900">Priya Sharma</h4>
+                            <p class="text-sm text-slate-500">Delhi, NCR</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4: Rajesh Kumar -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 relative group">
+                    <i class="fa-solid fa-quote-left text-4xl text-blue-50 absolute top-6 right-8 group-hover:text-blue-100 transition-colors"></i>
+                    <div class="flex items-center space-x-1 mb-4 text-gold">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-6 relative z-10">"Customer service is top-notch. The smart alerts on the Pro model are very helpful. Now I don't have to guess when to change the filters."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-lg">RK</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-slate-900">Rajesh Kumar</h4>
+                            <p class="text-sm text-slate-500">Bengaluru, Karnataka</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 5: Anita Desai -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 relative group">
+                    <i class="fa-solid fa-quote-left text-4xl text-blue-50 absolute top-6 right-8 group-hover:text-blue-100 transition-colors"></i>
+                    <div class="flex items-center space-x-1 mb-4 text-gold">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-6 relative z-10">"I was worried about the high TDS in our borewell water, but AquaPure handles it effortlessly. Very satisfied with the purchase and water taste."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold text-lg">AD</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-slate-900">Anita Desai</h4>
+                            <p class="text-sm text-slate-500">Ahmedabad, Gujarat</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 6: Dr. Sameer Patil -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 relative group">
+                    <i class="fa-solid fa-quote-left text-4xl text-blue-50 absolute top-6 right-8 group-hover:text-blue-100 transition-colors"></i>
+                    <div class="flex items-center space-x-1 mb-4 text-gold">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-6 relative z-10">"As a doctor, I prioritize water safety. AquaPure's 7-stage filtration gives me peace of mind. The mineral retention technology is genuinely effective."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-lg">SP</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-slate-900">Dr. Sameer Patil</h4>
+                            <p class="text-sm text-slate-500">Nagpur, Maharashtra</p>
                         </div>
                     </div>
                 </div>
@@ -791,34 +909,34 @@
 
         function checkout() {
             if (cart.length === 0) {
-                alert("Please use custom UI message: Your cart is empty."); // Following instruction, using mock custom message concept, but standard JS alert is banned.
-                // Replace banned alert with custom UI
                 showToast("Your cart is empty. Add some products first!");
                 return;
             }
             
-            // Custom Message Box implementation instead of alert
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             
-            // Close cart
+            // Generate WhatsApp Message for Cart Checkout
+            let orderText = `*New Order Request - AquaPure* 💧\n\n*Order Details:*\n`;
+            cart.forEach(item => {
+                orderText += `- ${item.quantity}x ${item.name} (₹${(item.price * item.quantity).toLocaleString('en-IN')})\n`;
+            });
+            orderText += `\n*Total Amount:* ₹${total.toLocaleString('en-IN')}\n\nI would like to proceed with this order.`;
+
+            const whatsappNumber = "917498502005"; // India country code
+            const encodedText = encodeURIComponent(orderText);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+            
+            // Close cart sidebar
             toggleCartModal();
             
-            // Show custom success message
-            const modal = document.createElement('div');
-            modal.className = 'fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-50 px-4';
-            modal.innerHTML = `
-                <div class="bg-white rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl transform transition-all scale-100">
-                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-6">
-                        <i class="fa-solid fa-check text-2xl text-green-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Order Initiated!</h3>
-                    <p class="text-gray-500 mb-6">Thank you for choosing AquaPure. Your order total is ₹${total.toLocaleString('en-IN')}. Our team will contact you shortly to confirm installation details.</p>
-                    <button onclick="this.closest('.fixed').remove(); clearCart();" class="w-full inline-flex justify-center rounded-xl border border-transparent bg-primary px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-secondary focus:outline-none">
-                        Back to Home
-                    </button>
-                </div>
-            `;
-            document.body.appendChild(modal);
+            // Show notification and clear cart
+            showToast("Redirecting to WhatsApp to complete your order...");
+            clearCart();
+            
+            // Open WhatsApp in new tab
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 500);
         }
 
         function clearCart() {
