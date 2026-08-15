@@ -197,6 +197,12 @@
         input:focus, textarea:focus {
             box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
         }
+
+        /* Responsive Utilities */
+        .marquee-card {
+            width: 85vw;
+            max-width: 400px;
+        }
     </style>
 </head>
 <body class="text-slate-700 antialiased selection:bg-primary selection:text-white">
@@ -213,7 +219,7 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
+                <div class="hidden md:flex space-x-6 lg:space-x-8 items-center">
                     <a href="#features" class="nav-link text-slate-600 hover:text-dark font-medium transition-colors text-sm tracking-wide">Features</a>
                     <a href="#products" class="nav-link text-slate-600 hover:text-dark font-medium transition-colors text-sm tracking-wide">Products</a>
                     <a href="#how-it-works" class="nav-link text-slate-600 hover:text-dark font-medium transition-colors text-sm tracking-wide">Technology</a>
@@ -225,7 +231,7 @@
                         <i class="fa-solid fa-cart-shopping text-slate-600 group-hover:text-primary text-xl transition-colors"></i>
                         <span id="cart-badge" class="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center opacity-0 transition-all transform scale-0 border-2 border-white shadow-sm">0</span>
                     </div>
-                    <a href="#contact" class="bg-dark hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm tracking-wide">Contact Experts</a>
+                    <a href="#contact" class="bg-dark hover:bg-slate-800 text-white px-5 lg:px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm tracking-wide">Contact Experts</a>
                 </div>
 
                 <!-- Mobile menu button -->
@@ -263,72 +269,73 @@
                 
                 <!-- Hero Text -->
                 <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left reveal">
-                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-bold mb-8 shadow-sm backdrop-blur-sm tracking-wide uppercase">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-700 text-[10px] sm:text-xs font-bold mb-6 sm:mb-8 shadow-sm backdrop-blur-sm tracking-wide uppercase">
                         <span class="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
                         Next-Gen Water Purification
                     </div>
-                    <h1 class="font-heading text-5xl tracking-tight font-extrabold text-dark sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl leading-[1.1]">
+                    <!-- Responsive Text Sizing adjustments here -->
+                    <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl tracking-tight font-extrabold text-dark leading-[1.1]">
                         <span class="block">The Taste of</span>
-                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400 mt-1">Absolute Purity.</span>
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400 mt-1 pb-2">Absolute Purity.</span>
                     </h1>
-                    <p class="mt-6 text-base text-slate-500 sm:text-xl lg:text-lg xl:text-xl max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    <p class="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg lg:text-xl text-slate-500 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
                         Elevate your home with intelligently designed, multi-stage filtration. Removes 99.99% of impurities while retaining the essential minerals your body craves.
                     </p>
                     
-                    <div class="mt-10 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0 flex flex-col sm:flex-row gap-4">
-                        <a href="#products" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-full shadow-[0_10px_20px_-10px_rgba(2,132,199,0.5)] text-white bg-primary hover:bg-secondary transition-all transform hover:-translate-y-1">
+                    <div class="mt-8 sm:mt-10 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0 flex flex-col sm:flex-row gap-4">
+                        <a href="#products" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 sm:py-4 border border-transparent text-sm sm:text-base font-semibold rounded-full shadow-[0_10px_20px_-10px_rgba(2,132,199,0.5)] text-white bg-primary hover:bg-secondary transition-all transform hover:-translate-y-1">
                             Explore Collection
                         </a>
-                        <a href="#how-it-works" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-slate-200 text-base font-semibold rounded-full text-slate-700 bg-white hover:bg-slate-50 transition-all shadow-sm group">
+                        <a href="#how-it-works" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 sm:py-4 border border-slate-200 text-sm sm:text-base font-semibold rounded-full text-slate-700 bg-white hover:bg-slate-50 transition-all shadow-sm group">
                             See the Science <i class="fa-solid fa-arrow-right ml-2 text-sm text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition-all"></i>
                         </a>
                     </div>
                     
-                    <div class="mt-10 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-center lg:justify-start gap-8 text-sm font-medium text-slate-500 reveal reveal-delay-2">
+                    <div class="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-slate-200 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8 text-xs sm:text-sm font-medium text-slate-500 reveal reveal-delay-2">
                         <div class="flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-3 text-primary"><i class="fa-solid fa-wrench"></i></div>
+                            <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2 sm:mr-3 text-primary"><i class="fa-solid fa-wrench text-[10px] sm:text-sm"></i></div>
                             Free Installation
                         </div>
                         <div class="flex items-center">
-                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-3 text-primary"><i class="fa-solid fa-shield-check"></i></div>
+                            <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2 sm:mr-3 text-primary"><i class="fa-solid fa-shield-check text-[10px] sm:text-sm"></i></div>
                             2 Year Warranty
                         </div>
                     </div>
                 </div>
                 
                 <!-- Hero Image Showcase -->
-                <div class="mt-16 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center reveal reveal-delay-1">
+                <div class="mt-12 sm:mt-16 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center reveal reveal-delay-1 px-4 sm:px-0">
                     <div class="relative mx-auto w-full float-animation">
                         <!-- Premium Backdrop effect -->
-                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-white rounded-[2.5rem] transform rotate-3 scale-105 opacity-50 blur-lg"></div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-white rounded-[2rem] sm:rounded-[2.5rem] transform rotate-3 scale-105 opacity-50 blur-lg"></div>
                         
-                        <div class="relative rounded-[2.5rem] bg-white p-6 shadow-premium border border-white/50 backdrop-blur-sm">
-                            <img class="w-full h-auto object-cover rounded-3xl aspect-[3/4] blend-multiply" 
+                        <div class="relative rounded-[2rem] sm:rounded-[2.5rem] bg-white p-4 sm:p-6 shadow-premium border border-white/50 backdrop-blur-sm">
+                            <img class="w-full h-auto object-cover rounded-2xl sm:rounded-3xl aspect-[3/4] blend-multiply" 
                                  src="https://www.cuckoo.com.my/wp-content/uploads/2024/04/Grande-feature-images.png" 
                                  referrerpolicy="no-referrer" 
                                  alt="Advanced Water Filter Modern Kitchen">
                             
                             <!-- Premium Floating Badges -->
-                            <div class="absolute top-12 -left-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white z-20">
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center">
-                                        <i class="fa-solid fa-shield-halved text-green-500 text-lg"></i>
+                            <div class="absolute top-8 sm:top-12 -left-2 sm:-left-6 bg-white/90 backdrop-blur-md p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-xl border border-white z-20 scale-90 sm:scale-100">
+                                <div class="flex items-center space-x-2 sm:space-x-3">
+                                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-50 flex items-center justify-center">
+                                        <i class="fa-solid fa-shield-halved text-green-500 text-sm sm:text-lg"></i>
                                     </div>
                                     <div>
-                                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Certified Safe</p>
-                                        <p class="font-heading font-extrabold text-dark text-base">99.9% Pure</p>
+                                        <p class="text-[8px] sm:text-[10px] text-slate-500 font-bold uppercase tracking-wider">Certified Safe</p>
+                                        <p class="font-heading font-extrabold text-dark text-sm sm:text-base">99.9% Pure</p>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="absolute bottom-12 -right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white z-20">
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center">
-                                        <i class="fa-solid fa-droplet text-accent text-lg"></i>
+                            <div class="absolute bottom-8 sm:bottom-12 -right-2 sm:-right-6 bg-white/90 backdrop-blur-md p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-xl border border-white z-20 scale-90 sm:scale-100">
+                                <div class="flex items-center space-x-2 sm:space-x-3">
+                                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-orange-50 flex items-center justify-center">
+                                        <i class="fa-solid fa-droplet text-accent text-sm sm:text-lg"></i>
                                     </div>
                                     <div>
-                                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Copper + Alkaline</p>
-                                        <p class="font-heading font-extrabold text-dark text-base">pH Balanced</p>
+                                        <p class="text-[8px] sm:text-[10px] text-slate-500 font-bold uppercase tracking-wider">Copper + Alkaline</p>
+                                        <p class="font-heading font-extrabold text-dark text-sm sm:text-base">pH Balanced</p>
                                     </div>
                                 </div>
                             </div>
@@ -339,102 +346,102 @@
         </div>
     </section>
 
-    <section id="features" class="py-24 bg-white relative">
+    <section id="features" class="py-16 sm:py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto reveal">
-                <h2 class="text-xs text-primary font-bold tracking-widest uppercase mb-3">Why AquaPure</h2>
-                <p class="mt-2 text-4xl leading-tight font-heading font-extrabold text-dark sm:text-5xl">
+                <h2 class="text-[10px] sm:text-xs text-primary font-bold tracking-widest uppercase mb-2 sm:mb-3">Why AquaPure</h2>
+                <p class="mt-2 text-3xl sm:text-4xl leading-tight font-heading font-extrabold text-dark sm:text-5xl">
                     Engineering health in every single drop.
                 </p>
-                <p class="mt-6 text-lg text-slate-500 font-light">
+                <p class="mt-4 sm:mt-6 text-base sm:text-lg text-slate-500 font-light px-4 sm:px-0">
                     Meticulously designed for demanding water conditions, combining aesthetics with medical-grade filtration technology.
                 </p>
             </div>
 
-            <div class="mt-20">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="mt-12 sm:mt-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                     <!-- Feature 1 -->
-                    <div class="bg-light p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all duration-300 group reveal">
-                        <div class="w-14 h-14 bg-white shadow-sm border border-slate-100 rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-2 group-hover:shadow-md transition-all duration-300">
-                            <i class="fa-solid fa-layer-group text-primary text-2xl"></i>
+                    <div class="bg-light p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all duration-300 group reveal">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white shadow-sm border border-slate-100 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:-translate-y-2 group-hover:shadow-md transition-all duration-300">
+                            <i class="fa-solid fa-layer-group text-primary text-xl sm:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-heading font-bold text-dark mb-3">7-Stage Filtration</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed font-light">Multi-stage process including RO, UV, UF, and MTDS control ensures complete removal of dissolved impurities.</p>
+                        <h3 class="text-lg sm:text-xl font-heading font-bold text-dark mb-2 sm:mb-3">7-Stage Filtration</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed font-light">Multi-stage process including RO, UV, UF, and MTDS control ensures complete removal of dissolved impurities.</p>
                     </div>
 
                     <!-- Feature 2 -->
-                    <div class="bg-light p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all duration-300 group reveal reveal-delay-1">
-                        <div class="w-14 h-14 bg-white shadow-sm border border-slate-100 rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-2 group-hover:shadow-md transition-all duration-300">
-                            <i class="fa-solid fa-leaf text-accent text-2xl"></i>
+                    <div class="bg-light p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all duration-300 group reveal reveal-delay-1">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white shadow-sm border border-slate-100 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:-translate-y-2 group-hover:shadow-md transition-all duration-300">
+                            <i class="fa-solid fa-leaf text-accent text-xl sm:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-heading font-bold text-dark mb-3">Mineral Retention</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed font-light">Smart TDS controller intelligently retains essential natural minerals like Calcium and Magnesium.</p>
+                        <h3 class="text-lg sm:text-xl font-heading font-bold text-dark mb-2 sm:mb-3">Mineral Retention</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed font-light">Smart TDS controller intelligently retains essential natural minerals like Calcium and Magnesium.</p>
                     </div>
 
                     <!-- Feature 3 -->
-                    <div class="bg-light p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all duration-300 group reveal reveal-delay-2">
-                        <div class="w-14 h-14 bg-white shadow-sm border border-slate-100 rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-2 group-hover:shadow-md transition-all duration-300">
-                            <i class="fa-solid fa-mobile-screen text-indigo-500 text-2xl"></i>
+                    <div class="bg-light p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all duration-300 group reveal reveal-delay-2">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white shadow-sm border border-slate-100 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:-translate-y-2 group-hover:shadow-md transition-all duration-300">
+                            <i class="fa-solid fa-mobile-screen text-indigo-500 text-xl sm:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-heading font-bold text-dark mb-3">Smart Alerts</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed font-light">Built-in sensors and visual indicators notify you when filters need replacement or maintenance.</p>
+                        <h3 class="text-lg sm:text-xl font-heading font-bold text-dark mb-2 sm:mb-3">Smart Alerts</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed font-light">Built-in sensors and visual indicators notify you when filters need replacement or maintenance.</p>
                     </div>
 
                     <!-- Feature 4 -->
-                    <div class="bg-light p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all duration-300 group reveal reveal-delay-3">
-                        <div class="w-14 h-14 bg-white shadow-sm border border-slate-100 rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-2 group-hover:shadow-md transition-all duration-300">
-                            <i class="fa-solid fa-recycle text-emerald-500 text-2xl"></i>
+                    <div class="bg-light p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-premium transition-all duration-300 group reveal reveal-delay-3">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white shadow-sm border border-slate-100 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:-translate-y-2 group-hover:shadow-md transition-all duration-300">
+                            <i class="fa-solid fa-recycle text-emerald-500 text-xl sm:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-heading font-bold text-dark mb-3">Zero Wastage</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed font-light">Advanced recovery technology ensures maximum water is purified with minimal rejected output.</p>
+                        <h3 class="text-lg sm:text-xl font-heading font-bold text-dark mb-2 sm:mb-3">Zero Wastage</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed font-light">Advanced recovery technology ensures maximum water is purified with minimal rejected output.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="products" class="py-24 bg-slate-50 relative border-t border-slate-100">
+    <section id="products" class="py-16 sm:py-24 bg-slate-50 relative border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal">
-                <div class="max-w-2xl">
-                    <h2 class="text-4xl font-heading font-extrabold text-dark sm:text-5xl">Our Signature Line</h2>
-                    <p class="mt-4 text-lg text-slate-500 font-light">Uncompromising quality. Choose the perfect purifier tailored for your home's water profile.</p>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 reveal text-center md:text-left">
+                <div class="max-w-2xl mx-auto md:mx-0">
+                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-dark sm:text-5xl">Our Signature Line</h2>
+                    <p class="mt-3 sm:mt-4 text-base sm:text-lg text-slate-500 font-light px-4 sm:px-0">Uncompromising quality. Choose the perfect purifier tailored for your home's water profile.</p>
                 </div>
-                <div class="mt-6 md:mt-0">
-                    <a href="#contact" class="text-primary font-semibold hover:text-dark transition-colors flex items-center group">
+                <div class="mt-6 md:mt-0 flex justify-center md:justify-end">
+                    <a href="#contact" class="text-primary font-semibold hover:text-dark transition-colors flex items-center group text-sm sm:text-base">
                         Need help choosing? <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Product 1: Bestseller -->
-                <div class="product-card bg-white rounded-[2rem] border border-slate-100 flex flex-col h-full relative reveal reveal-delay-1 overflow-hidden">
-                    <div class="absolute top-5 left-5 bg-dark text-white text-[10px] font-bold px-3 py-1.5 rounded-full z-10 shadow-sm uppercase tracking-widest">
+                <div class="product-card bg-white rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 flex flex-col h-full relative reveal reveal-delay-1 overflow-hidden">
+                    <div class="absolute top-4 sm:top-5 left-4 sm:left-5 bg-dark text-white text-[9px] sm:text-[10px] font-bold px-3 py-1.5 rounded-full z-10 shadow-sm uppercase tracking-widest">
                         Bestseller
                     </div>
-                    <div class="p-8 bg-gradient-to-b from-slate-50/50 to-white flex justify-center h-80 relative overflow-hidden group">
+                    <div class="p-6 sm:p-8 bg-gradient-to-b from-slate-50/50 to-white flex justify-center h-64 sm:h-80 relative overflow-hidden group">
                         <img src="https://m.media-amazon.com/images/I/61NlEZjVzFL._SX679_.jpg" 
                              alt="AquaPure Pro Active Copper" 
                              class="h-full w-auto object-contain blend-multiply drop-shadow-2xl transition-transform duration-700 group-hover:scale-110">
                     </div>
-                    <div class="p-8 flex-grow flex flex-col border-t border-slate-50">
-                        <p class="text-xs text-primary font-bold tracking-widest uppercase mb-2">RO + UV + MTDS + Copper</p>
-                        <h3 class="text-2xl font-heading font-bold text-dark mb-3">AquaPure Pro Copper</h3>
-                        <p class="text-slate-500 text-sm mb-6 flex-grow font-light leading-relaxed">Infuses the goodness of natural copper into water. Advanced MTDS technology adjusts taste based on the water source perfectly.</p>
+                    <div class="p-6 sm:p-8 flex-grow flex flex-col border-t border-slate-50">
+                        <p class="text-[10px] sm:text-xs text-primary font-bold tracking-widest uppercase mb-2">RO + UV + MTDS + Copper</p>
+                        <h3 class="text-xl sm:text-2xl font-heading font-bold text-dark mb-2 sm:mb-3">AquaPure Pro Copper</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm mb-6 flex-grow font-light leading-relaxed">Infuses the goodness of natural copper into water. Advanced MTDS technology adjusts taste based on the water source perfectly.</p>
                         
-                        <div class="space-y-3 mb-8 text-sm text-slate-600 font-medium">
-                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div> 7L Storage Capacity</div>
-                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div> Active Copper Tech</div>
-                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div> 8-Stage Purification</div>
+                        <div class="space-y-2 sm:space-y-3 mb-6 sm:mb-8 text-xs sm:text-sm text-slate-600 font-medium">
+                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-2 sm:mr-3"></div> 7L Storage Capacity</div>
+                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-2 sm:mr-3"></div> Active Copper Tech</div>
+                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-2 sm:mr-3"></div> 8-Stage Purification</div>
                         </div>
                         
                         <div class="flex items-center justify-between mt-auto">
                             <div>
-                                <span class="text-xs text-slate-400 line-through font-medium block mb-0.5">₹21,000</span>
-                                <span class="block text-2xl font-heading font-extrabold text-dark">₹15,999</span>
+                                <span class="text-[10px] sm:text-xs text-slate-400 line-through font-medium block mb-0.5">₹21,000</span>
+                                <span class="block text-xl sm:text-2xl font-heading font-extrabold text-dark">₹15,999</span>
                             </div>
-                            <button onclick="addToCart('AquaPure Pro Copper', 15999)" class="bg-white hover:bg-slate-50 text-dark border border-slate-200 px-6 py-3 rounded-full font-semibold transition-all flex items-center hover:shadow-md hover:border-slate-300">
+                            <button onclick="addToCart('AquaPure Pro Copper', 15999)" class="bg-white hover:bg-slate-50 text-dark border border-slate-200 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all flex items-center hover:shadow-md hover:border-slate-300">
                                 Add to Cart
                             </button>
                         </div>
@@ -442,33 +449,33 @@
                 </div>
 
                 <!-- Product 2: Premium Flagship -->
-                <div class="product-card bg-dark rounded-[2rem] border border-slate-800 flex flex-col h-full relative reveal reveal-delay-2 transform md:-translate-y-4 shadow-2xl overflow-hidden group">
+                <div class="product-card bg-dark rounded-[1.5rem] sm:rounded-[2rem] border border-slate-800 flex flex-col h-full relative reveal reveal-delay-2 transform md:-translate-y-4 shadow-2xl overflow-hidden group">
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="absolute top-5 left-5 bg-gradient-to-r from-accent to-yellow-500 text-dark text-[10px] font-bold px-3 py-1.5 rounded-full z-10 shadow-lg uppercase tracking-widest">
+                    <div class="absolute top-4 sm:top-5 left-4 sm:left-5 bg-gradient-to-r from-accent to-yellow-500 text-dark text-[9px] sm:text-[10px] font-bold px-3 py-1.5 rounded-full z-10 shadow-lg uppercase tracking-widest">
                         Flagship
                     </div>
-                    <div class="p-8 bg-gradient-to-b from-slate-800/50 to-dark flex justify-center h-80 relative overflow-hidden group">
+                    <div class="p-6 sm:p-8 bg-gradient-to-b from-slate-800/50 to-dark flex justify-center h-64 sm:h-80 relative overflow-hidden group">
                         <img src="https://m.media-amazon.com/images/I/51r1umvw1bL._SX679_.jpg" 
                              alt="AquaPure Elite Alkaline" 
                              class="h-full w-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)] transition-transform duration-700 group-hover:scale-110 relative z-10">
                     </div>
-                    <div class="p-8 flex-grow flex flex-col relative z-10 border-t border-slate-800">
-                        <p class="text-xs text-accent font-bold tracking-widest uppercase mb-2">RO + UV + UF + Alkaline</p>
-                        <h3 class="text-2xl font-heading font-bold text-white mb-3">AquaPure Elite Alkaline</h3>
-                        <p class="text-slate-400 text-sm mb-6 flex-grow font-light leading-relaxed">Our most advanced system. Enhances pH level to 8.5-9.5 for better immunity and supreme hydration.</p>
+                    <div class="p-6 sm:p-8 flex-grow flex flex-col relative z-10 border-t border-slate-800">
+                        <p class="text-[10px] sm:text-xs text-accent font-bold tracking-widest uppercase mb-2">RO + UV + UF + Alkaline</p>
+                        <h3 class="text-xl sm:text-2xl font-heading font-bold text-white mb-2 sm:mb-3">AquaPure Elite Alkaline</h3>
+                        <p class="text-slate-400 text-xs sm:text-sm mb-6 flex-grow font-light leading-relaxed">Our most advanced system. Enhances pH level to 8.5-9.5 for better immunity and supreme hydration.</p>
                         
-                        <div class="space-y-3 mb-8 text-sm text-slate-300 font-medium">
-                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-accent mr-3"></div> Alkaline pH 8.5+</div>
-                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-accent mr-3"></div> 8L Storage Capacity</div>
-                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-accent mr-3"></div> Zero Water Wastage</div>
+                        <div class="space-y-2 sm:space-y-3 mb-6 sm:mb-8 text-xs sm:text-sm text-slate-300 font-medium">
+                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-accent mr-2 sm:mr-3"></div> Alkaline pH 8.5+</div>
+                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-accent mr-2 sm:mr-3"></div> 8L Storage Capacity</div>
+                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-accent mr-2 sm:mr-3"></div> Zero Water Wastage</div>
                         </div>
                         
                         <div class="flex items-center justify-between mt-auto">
                             <div>
-                                <span class="text-xs text-slate-500 line-through font-medium block mb-0.5">₹24,500</span>
-                                <span class="block text-2xl font-heading font-extrabold text-white">₹18,500</span>
+                                <span class="text-[10px] sm:text-xs text-slate-500 line-through font-medium block mb-0.5">₹24,500</span>
+                                <span class="block text-xl sm:text-2xl font-heading font-extrabold text-white">₹18,500</span>
                             </div>
-                            <button onclick="addToCart('AquaPure Elite Alkaline', 18500)" class="bg-primary hover:bg-blue-500 text-white px-6 py-3 rounded-full font-semibold transition-all flex items-center shadow-[0_0_15px_rgba(2,132,199,0.4)] hover:shadow-[0_0_25px_rgba(2,132,199,0.6)]">
+                            <button onclick="addToCart('AquaPure Elite Alkaline', 18500)" class="bg-primary hover:bg-blue-500 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all flex items-center shadow-[0_0_15px_rgba(2,132,199,0.4)] hover:shadow-[0_0_25px_rgba(2,132,199,0.6)]">
                                 Add to Cart
                             </button>
                         </div>
@@ -476,32 +483,32 @@
                 </div>
 
                 <!-- Product 3: Essential -->
-                <div class="product-card bg-white rounded-[2rem] border border-slate-100 flex flex-col h-full relative reveal reveal-delay-3 overflow-hidden">
-                    <div class="absolute top-5 left-5 bg-slate-100 text-slate-600 border border-slate-200 text-[10px] font-bold px-3 py-1.5 rounded-full z-10 uppercase tracking-widest">
+                <div class="product-card bg-white rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 flex flex-col h-full relative reveal reveal-delay-3 overflow-hidden">
+                    <div class="absolute top-4 sm:top-5 left-4 sm:left-5 bg-slate-100 text-slate-600 border border-slate-200 text-[9px] sm:text-[10px] font-bold px-3 py-1.5 rounded-full z-10 uppercase tracking-widest">
                         Essential
                     </div>
-                    <div class="p-8 bg-gradient-to-b from-slate-50/50 to-white flex justify-center h-80 relative overflow-hidden group">
+                    <div class="p-6 sm:p-8 bg-gradient-to-b from-slate-50/50 to-white flex justify-center h-64 sm:h-80 relative overflow-hidden group">
                         <img src="https://m.media-amazon.com/images/I/51r26fQxyeL._SX679_.jpg" 
                              alt="AquaPure Essential Max" 
                              class="h-full w-auto object-contain blend-multiply drop-shadow-2xl transition-transform duration-700 group-hover:scale-110">
                     </div>
-                    <div class="p-8 flex-grow flex flex-col border-t border-slate-50">
-                        <p class="text-xs text-primary font-bold tracking-widest uppercase mb-2">Advanced RO + UV</p>
-                        <h3 class="text-2xl font-heading font-bold text-dark mb-3">AquaPure Minimalist</h3>
-                        <p class="text-slate-500 text-sm mb-6 flex-grow font-light leading-relaxed">Perfect for municipal water. Sleek, ultra-minimal design that blends perfectly into modern, compact kitchens.</p>
+                    <div class="p-6 sm:p-8 flex-grow flex flex-col border-t border-slate-50">
+                        <p class="text-[10px] sm:text-xs text-primary font-bold tracking-widest uppercase mb-2">Advanced RO + UV</p>
+                        <h3 class="text-xl sm:text-2xl font-heading font-bold text-dark mb-2 sm:mb-3">AquaPure Minimalist</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm mb-6 flex-grow font-light leading-relaxed">Perfect for municipal water. Sleek, ultra-minimal design that blends perfectly into modern, compact kitchens.</p>
                         
-                        <div class="space-y-3 mb-8 text-sm text-slate-600 font-medium">
-                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-slate-300 mr-3"></div> 6L Storage Capacity</div>
-                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-slate-300 mr-3"></div> Energy Saving Mode</div>
-                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-slate-300 mr-3"></div> Smart LED Indicators</div>
+                        <div class="space-y-2 sm:space-y-3 mb-6 sm:mb-8 text-xs sm:text-sm text-slate-600 font-medium">
+                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-slate-300 mr-2 sm:mr-3"></div> 6L Storage Capacity</div>
+                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-slate-300 mr-2 sm:mr-3"></div> Energy Saving Mode</div>
+                            <div class="flex items-center"><div class="w-1.5 h-1.5 rounded-full bg-slate-300 mr-2 sm:mr-3"></div> Smart LED Indicators</div>
                         </div>
                         
                         <div class="flex items-center justify-between mt-auto">
                             <div>
-                                <span class="text-xs text-slate-400 line-through font-medium block mb-0.5">₹14,500</span>
-                                <span class="block text-2xl font-heading font-extrabold text-dark">₹10,999</span>
+                                <span class="text-[10px] sm:text-xs text-slate-400 line-through font-medium block mb-0.5">₹14,500</span>
+                                <span class="block text-xl sm:text-2xl font-heading font-extrabold text-dark">₹10,999</span>
                             </div>
-                            <button onclick="addToCart('AquaPure Minimalist', 10999)" class="bg-white hover:bg-slate-50 text-dark border border-slate-200 px-6 py-3 rounded-full font-semibold transition-all flex items-center hover:shadow-md hover:border-slate-300">
+                            <button onclick="addToCart('AquaPure Minimalist', 10999)" class="bg-white hover:bg-slate-50 text-dark border border-slate-200 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all flex items-center hover:shadow-md hover:border-slate-300">
                                 Add to Cart
                             </button>
                         </div>
@@ -511,32 +518,32 @@
         </div>
     </section>
 
-    <section id="how-it-works" class="py-24 bg-dark relative overflow-hidden">
+    <section id="how-it-works" class="py-16 sm:py-24 bg-dark relative overflow-hidden">
         <!-- Abstract Backgrounds -->
-        <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-[30rem] sm:w-[40rem] h-[30rem] sm:h-[40rem] bg-primary/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[30rem] sm:w-[40rem] h-[30rem] sm:h-[40rem] bg-indigo-500/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none"></div>
 
         <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-20 reveal">
-                <h2 class="text-primary font-bold tracking-widest uppercase text-xs mb-3">The Anatomy of Purity</h2>
-                <h3 class="text-4xl md:text-5xl font-heading font-extrabold text-white mb-6">How The Magic Happens</h3>
-                <p class="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">Discover the journey of a single drop. Through 7 stages of medical-grade filtration, we transform ordinary tap water into life-enriching hydration.</p>
+            <div class="text-center mb-12 sm:mb-20 reveal">
+                <h2 class="text-primary font-bold tracking-widest uppercase text-[10px] sm:text-xs mb-2 sm:mb-3">The Anatomy of Purity</h2>
+                <h3 class="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white mb-4 sm:mb-6">How The Magic Happens</h3>
+                <p class="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed px-2 sm:px-0">Discover the journey of a single drop. Through 7 stages of medical-grade filtration, we transform ordinary tap water into life-enriching hydration.</p>
             </div>
 
             <!-- Main Diagram Container with Premium Styling -->
-            <div class="relative w-full glass-dark rounded-[2.5rem] p-2 md:p-4 shadow-[0_0_50px_rgba(0,0,0,0.5)] reveal reveal-delay-1 overflow-hidden group border border-slate-800/50">
+            <div class="relative w-full glass-dark rounded-[1.5rem] sm:rounded-[2.5rem] p-1.5 sm:p-2 md:p-4 shadow-[0_0_30px_rgba(0,0,0,0.5)] sm:shadow-[0_0_50px_rgba(0,0,0,0.5)] reveal reveal-delay-1 overflow-hidden group border border-slate-800/50">
                 
-                <!-- Mobile Scroll Hint -->
-                <div class="absolute top-6 right-6 bg-white/10 backdrop-blur border border-white/20 text-white text-xs px-4 py-2 rounded-full z-20 flex items-center md:hidden shadow-lg animate-pulse font-medium">
-                    <i class="fa-solid fa-arrows-left-right mr-2"></i> Swipe Diagram
+                <!-- Center-Aligned Mobile/Tablet Scroll Hint -->
+                <div class="absolute top-6 left-1/2 transform -translate-x-1/2 bg-white/20 backdrop-blur-md border border-white/30 text-white text-[10px] sm:text-xs px-5 py-2.5 rounded-full z-20 flex items-center lg:hidden shadow-[0_0_15px_rgba(255,255,255,0.2)] animate-bounce font-bold tracking-wide pointer-events-none whitespace-nowrap">
+                    <i class="fa-solid fa-hand-pointer mr-2"></i> Swipe sideways to explore
                 </div>
 
-                <!-- Scrollable Wrapper for SVG -->
-                <div class="w-full overflow-x-auto hide-scrollbar touch-pan-x cursor-grab active:cursor-grabbing pb-4 rounded-[2rem]" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
+                <!-- Scrollable Wrapper for SVG (Enforcing min-width is best practice for highly complex diagrams on mobile to preserve legibility) -->
+                <div class="w-full overflow-x-auto hide-scrollbar touch-pan-x cursor-grab active:cursor-grabbing pb-4 rounded-xl sm:rounded-[2rem]" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
                     
-                    <div class="min-w-[1200px] lg:w-full h-auto p-4 md:p-8 relative bg-[#060B14] rounded-[2rem]">
+                    <div class="min-w-[1000px] lg:w-full h-auto p-4 md:p-8 relative bg-[#060B14] rounded-xl sm:rounded-[2rem]">
                         
-                        <!-- RE-USED HIGHLY DETAILED SVG (Kept intact as it's structurally perfect, refined visually) -->
+                        <!-- RE-USED HIGHLY DETAILED SVG -->
                         <svg class="w-full h-auto drop-shadow-2xl" viewBox="0 0 1400 600" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <!-- Premium 3D Pipe Gradients -->
@@ -906,97 +913,97 @@
             </div>
             
             <!-- Quick Feature highlights below diagram -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center reveal reveal-delay-2">
-                <div class="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-6 hover:bg-slate-800/50 transition-colors">
-                    <i class="fa-solid fa-microscope text-3xl text-blue-400 mb-4 block"></i>
-                    <h5 class="text-white font-heading font-bold text-base mb-1">0.0001 Micron</h5>
-                    <p class="text-slate-400 text-xs font-light">Deep Purification</p>
+            <div class="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center reveal reveal-delay-2">
+                <div class="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 hover:bg-slate-800/50 transition-colors">
+                    <i class="fa-solid fa-microscope text-2xl sm:text-3xl text-blue-400 mb-3 sm:mb-4 block"></i>
+                    <h5 class="text-white font-heading font-bold text-sm sm:text-base mb-1">0.0001 Micron</h5>
+                    <p class="text-slate-400 text-[10px] sm:text-xs font-light">Deep Purification</p>
                 </div>
-                <div class="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-6 hover:bg-slate-800/50 transition-colors">
-                    <i class="fa-solid fa-shield-virus text-3xl text-fuchsia-400 mb-4 block"></i>
-                    <h5 class="text-white font-heading font-bold text-base mb-1">99.99% Safe</h5>
-                    <p class="text-slate-400 text-xs font-light">UV Sterilization</p>
+                <div class="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 hover:bg-slate-800/50 transition-colors">
+                    <i class="fa-solid fa-shield-virus text-2xl sm:text-3xl text-fuchsia-400 mb-3 sm:mb-4 block"></i>
+                    <h5 class="text-white font-heading font-bold text-sm sm:text-base mb-1">99.99% Safe</h5>
+                    <p class="text-slate-400 text-[10px] sm:text-xs font-light">UV Sterilization</p>
                 </div>
-                <div class="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-6 hover:bg-slate-800/50 transition-colors">
-                    <i class="fa-solid fa-droplet text-3xl text-amber-500 mb-4 block"></i>
-                    <h5 class="text-white font-heading font-bold text-base mb-1">Copper + pH 8.5</h5>
-                    <p class="text-slate-400 text-xs font-light">Immunity Boost</p>
+                <div class="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 hover:bg-slate-800/50 transition-colors">
+                    <i class="fa-solid fa-droplet text-2xl sm:text-3xl text-amber-500 mb-3 sm:mb-4 block"></i>
+                    <h5 class="text-white font-heading font-bold text-sm sm:text-base mb-1">Copper + pH 8.5</h5>
+                    <p class="text-slate-400 text-[10px] sm:text-xs font-light">Immunity Boost</p>
                 </div>
-                <div class="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-6 hover:bg-slate-800/50 transition-colors">
-                    <i class="fa-solid fa-recycle text-3xl text-emerald-400 mb-4 block"></i>
-                    <h5 class="text-white font-heading font-bold text-base mb-1">Zero Wastage</h5>
-                    <p class="text-slate-400 text-xs font-light">Eco-friendly Tech</p>
+                <div class="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 hover:bg-slate-800/50 transition-colors">
+                    <i class="fa-solid fa-recycle text-2xl sm:text-3xl text-emerald-400 mb-3 sm:mb-4 block"></i>
+                    <h5 class="text-white font-heading font-bold text-sm sm:text-base mb-1">Zero Wastage</h5>
+                    <p class="text-slate-400 text-[10px] sm:text-xs font-light">Eco-friendly Tech</p>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section id="testimonials" class="py-24 bg-white relative overflow-hidden">
+    <section id="testimonials" class="py-16 sm:py-24 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-xs text-primary font-bold tracking-widest uppercase mb-3">Customer Stories</h2>
-                <p class="mt-2 text-4xl leading-tight font-heading font-extrabold text-dark sm:text-5xl">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <h2 class="text-[10px] sm:text-xs text-primary font-bold tracking-widest uppercase mb-2 sm:mb-3">Customer Stories</h2>
+                <p class="mt-2 text-3xl sm:text-4xl leading-tight font-heading font-extrabold text-dark sm:text-5xl">
                     Trusted by 100,000+ families.
                 </p>
             </div>
 
-            <div class="marquee-container mt-12 w-full reveal reveal-delay-1">
+            <div class="marquee-container mt-8 sm:mt-12 w-full reveal reveal-delay-1">
                 <!-- Group 1 -->
                 <div class="marquee-content">
-                    <!-- Review Cards - Premium Styling -->
-                    <div class="bg-light w-[400px] flex-shrink-0 p-10 rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
-                        <div class="flex items-center space-x-1 mb-6 text-accent">
-                            <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+                    <!-- Review Cards - Premium Styling & Responsive Width -->
+                    <div class="bg-light marquee-card flex-shrink-0 p-8 sm:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
+                        <div class="flex items-center space-x-1 mb-4 sm:mb-6 text-accent">
+                            <i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i>
                         </div>
-                        <p class="text-slate-600 font-light text-lg leading-relaxed mb-8">"The design is incredibly sleek, and the water tastes remarkably better. Installation was seamless, and the smart alerts give us peace of mind."</p>
+                        <p class="text-slate-600 font-light text-sm sm:text-lg leading-relaxed mb-6 sm:mb-8">"The design is incredibly sleek, and the water tastes remarkably better. Installation was seamless, and the smart alerts give us peace of mind."</p>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 text-primary flex items-center justify-center font-heading font-bold text-lg shadow-inner">SB</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-dark font-heading">Shankar Bagale</h4>
-                                <p class="text-xs text-slate-500 tracking-wide">Pune, MH</p>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 text-primary flex items-center justify-center font-heading font-bold text-base sm:text-lg shadow-inner">SB</div>
+                            <div class="ml-3 sm:ml-4">
+                                <h4 class="font-bold text-dark font-heading text-sm sm:text-base">Shankar Bagale</h4>
+                                <p class="text-[10px] sm:text-xs text-slate-500 tracking-wide">Pune, MH</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-light w-[400px] flex-shrink-0 p-10 rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
-                        <div class="flex items-center space-x-1 mb-6 text-accent">
-                            <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+                    <div class="bg-light marquee-card flex-shrink-0 p-8 sm:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
+                        <div class="flex items-center space-x-1 mb-4 sm:mb-6 text-accent">
+                            <i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i>
                         </div>
-                        <p class="text-slate-600 font-light text-lg leading-relaxed mb-8">"Upgraded to the Elite Alkaline model. My family genuinely feels more hydrated. It's an investment in our long-term health."</p>
+                        <p class="text-slate-600 font-light text-sm sm:text-lg leading-relaxed mb-6 sm:mb-8">"Upgraded to the Elite Alkaline model. My family genuinely feels more hydrated. It's an investment in our long-term health."</p>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-100 to-emerald-200 text-emerald-600 flex items-center justify-center font-heading font-bold text-lg shadow-inner">VS</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-dark font-heading">Vikas Sultane</h4>
-                                <p class="text-xs text-slate-500 tracking-wide">Mumbai, MH</p>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-emerald-100 to-emerald-200 text-emerald-600 flex items-center justify-center font-heading font-bold text-base sm:text-lg shadow-inner">VS</div>
+                            <div class="ml-3 sm:ml-4">
+                                <h4 class="font-bold text-dark font-heading text-sm sm:text-base">Vikas Sultane</h4>
+                                <p class="text-[10px] sm:text-xs text-slate-500 tracking-wide">Mumbai, MH</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-light w-[400px] flex-shrink-0 p-10 rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
-                        <div class="flex items-center space-x-1 mb-6 text-accent">
-                            <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+                    <div class="bg-light marquee-card flex-shrink-0 p-8 sm:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
+                        <div class="flex items-center space-x-1 mb-4 sm:mb-6 text-accent">
+                            <i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i>
                         </div>
-                        <p class="text-slate-600 font-light text-lg leading-relaxed mb-8">"Perfect for our modular kitchen. The zero-wastage tech is what sold me, but the build quality is what keeps me loyal."</p>
+                        <p class="text-slate-600 font-light text-sm sm:text-lg leading-relaxed mb-6 sm:mb-8">"Perfect for our modular kitchen. The zero-wastage tech is what sold me, but the build quality is what keeps me loyal."</p>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-100 to-purple-200 text-purple-600 flex items-center justify-center font-heading font-bold text-lg shadow-inner">PS</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-dark font-heading">Priya Sharma</h4>
-                                <p class="text-xs text-slate-500 tracking-wide">Delhi, NCR</p>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-100 to-purple-200 text-purple-600 flex items-center justify-center font-heading font-bold text-base sm:text-lg shadow-inner">PS</div>
+                            <div class="ml-3 sm:ml-4">
+                                <h4 class="font-bold text-dark font-heading text-sm sm:text-base">Priya Sharma</h4>
+                                <p class="text-[10px] sm:text-xs text-slate-500 tracking-wide">Delhi, NCR</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="bg-light w-[400px] flex-shrink-0 p-10 rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
-                        <div class="flex items-center space-x-1 mb-6 text-accent">
-                            <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+                    <div class="bg-light marquee-card flex-shrink-0 p-8 sm:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
+                        <div class="flex items-center space-x-1 mb-4 sm:mb-6 text-accent">
+                            <i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i>
                         </div>
-                        <p class="text-slate-600 font-light text-lg leading-relaxed mb-8">"As a healthcare professional, water safety is paramount. The 7-stage RO+UV process is medical grade. Highly recommended."</p>
+                        <p class="text-slate-600 font-light text-sm sm:text-lg leading-relaxed mb-6 sm:mb-8">"As a healthcare professional, water safety is paramount. The 7-stage RO+UV process is medical grade. Highly recommended."</p>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-100 to-rose-200 text-rose-600 flex items-center justify-center font-heading font-bold text-lg shadow-inner">DR</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-dark font-heading">Dr. Rahul Menon</h4>
-                                <p class="text-xs text-slate-500 tracking-wide">Bangalore, KA</p>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-rose-100 to-rose-200 text-rose-600 flex items-center justify-center font-heading font-bold text-base sm:text-lg shadow-inner">DR</div>
+                            <div class="ml-3 sm:ml-4">
+                                <h4 class="font-bold text-dark font-heading text-sm sm:text-base">Dr. Rahul Menon</h4>
+                                <p class="text-[10px] sm:text-xs text-slate-500 tracking-wide">Bangalore, KA</p>
                             </div>
                         </div>
                     </div>
@@ -1004,58 +1011,58 @@
 
                 <!-- Group 2 (Duplicate for smooth infinite scroll) -->
                 <div class="marquee-content" aria-hidden="true">
-                    <div class="bg-light w-[400px] flex-shrink-0 p-10 rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
-                        <div class="flex items-center space-x-1 mb-6 text-accent">
-                            <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+                    <div class="bg-light marquee-card flex-shrink-0 p-8 sm:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
+                        <div class="flex items-center space-x-1 mb-4 sm:mb-6 text-accent">
+                            <i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i>
                         </div>
-                        <p class="text-slate-600 font-light text-lg leading-relaxed mb-8">"The design is incredibly sleek, and the water tastes remarkably better. Installation was seamless, and the smart alerts give us peace of mind."</p>
+                        <p class="text-slate-600 font-light text-sm sm:text-lg leading-relaxed mb-6 sm:mb-8">"The design is incredibly sleek, and the water tastes remarkably better. Installation was seamless, and the smart alerts give us peace of mind."</p>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 text-primary flex items-center justify-center font-heading font-bold text-lg shadow-inner">SB</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-dark font-heading">Shankar Bagale</h4>
-                                <p class="text-xs text-slate-500 tracking-wide">Pune, MH</p>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 text-primary flex items-center justify-center font-heading font-bold text-base sm:text-lg shadow-inner">SB</div>
+                            <div class="ml-3 sm:ml-4">
+                                <h4 class="font-bold text-dark font-heading text-sm sm:text-base">Shankar Bagale</h4>
+                                <p class="text-[10px] sm:text-xs text-slate-500 tracking-wide">Pune, MH</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-light w-[400px] flex-shrink-0 p-10 rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
-                        <div class="flex items-center space-x-1 mb-6 text-accent">
-                            <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+                    <div class="bg-light marquee-card flex-shrink-0 p-8 sm:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
+                        <div class="flex items-center space-x-1 mb-4 sm:mb-6 text-accent">
+                            <i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i>
                         </div>
-                        <p class="text-slate-600 font-light text-lg leading-relaxed mb-8">"Upgraded to the Elite Alkaline model. My family genuinely feels more hydrated. It's an investment in our long-term health."</p>
+                        <p class="text-slate-600 font-light text-sm sm:text-lg leading-relaxed mb-6 sm:mb-8">"Upgraded to the Elite Alkaline model. My family genuinely feels more hydrated. It's an investment in our long-term health."</p>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-100 to-emerald-200 text-emerald-600 flex items-center justify-center font-heading font-bold text-lg shadow-inner">VS</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-dark font-heading">Vikas Sultane</h4>
-                                <p class="text-xs text-slate-500 tracking-wide">Mumbai, MH</p>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-emerald-100 to-emerald-200 text-emerald-600 flex items-center justify-center font-heading font-bold text-base sm:text-lg shadow-inner">VS</div>
+                            <div class="ml-3 sm:ml-4">
+                                <h4 class="font-bold text-dark font-heading text-sm sm:text-base">Vikas Sultane</h4>
+                                <p class="text-[10px] sm:text-xs text-slate-500 tracking-wide">Mumbai, MH</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-light w-[400px] flex-shrink-0 p-10 rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
-                        <div class="flex items-center space-x-1 mb-6 text-accent">
-                            <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+                    <div class="bg-light marquee-card flex-shrink-0 p-8 sm:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
+                        <div class="flex items-center space-x-1 mb-4 sm:mb-6 text-accent">
+                            <i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i>
                         </div>
-                        <p class="text-slate-600 font-light text-lg leading-relaxed mb-8">"Perfect for our modular kitchen. The zero-wastage tech is what sold me, but the build quality is what keeps me loyal."</p>
+                        <p class="text-slate-600 font-light text-sm sm:text-lg leading-relaxed mb-6 sm:mb-8">"Perfect for our modular kitchen. The zero-wastage tech is what sold me, but the build quality is what keeps me loyal."</p>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-100 to-purple-200 text-purple-600 flex items-center justify-center font-heading font-bold text-lg shadow-inner">PS</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-dark font-heading">Priya Sharma</h4>
-                                <p class="text-xs text-slate-500 tracking-wide">Delhi, NCR</p>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-100 to-purple-200 text-purple-600 flex items-center justify-center font-heading font-bold text-base sm:text-lg shadow-inner">PS</div>
+                            <div class="ml-3 sm:ml-4">
+                                <h4 class="font-bold text-dark font-heading text-sm sm:text-base">Priya Sharma</h4>
+                                <p class="text-[10px] sm:text-xs text-slate-500 tracking-wide">Delhi, NCR</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="bg-light w-[400px] flex-shrink-0 p-10 rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
-                        <div class="flex items-center space-x-1 mb-6 text-accent">
-                            <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+                    <div class="bg-light marquee-card flex-shrink-0 p-8 sm:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 hover:border-slate-200 hover:shadow-premium transition-all duration-300 relative group cursor-default">
+                        <div class="flex items-center space-x-1 mb-4 sm:mb-6 text-accent">
+                            <i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i><i class="fa-solid fa-star text-xs sm:text-sm"></i>
                         </div>
-                        <p class="text-slate-600 font-light text-lg leading-relaxed mb-8">"As a healthcare professional, water safety is paramount. The 7-stage RO+UV process is medical grade. Highly recommended."</p>
+                        <p class="text-slate-600 font-light text-sm sm:text-lg leading-relaxed mb-6 sm:mb-8">"As a healthcare professional, water safety is paramount. The 7-stage RO+UV process is medical grade. Highly recommended."</p>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-100 to-rose-200 text-rose-600 flex items-center justify-center font-heading font-bold text-lg shadow-inner">DR</div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-dark font-heading">Dr. Rahul Menon</h4>
-                                <p class="text-xs text-slate-500 tracking-wide">Bangalore, KA</p>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-rose-100 to-rose-200 text-rose-600 flex items-center justify-center font-heading font-bold text-base sm:text-lg shadow-inner">DR</div>
+                            <div class="ml-3 sm:ml-4">
+                                <h4 class="font-bold text-dark font-heading text-sm sm:text-base">Dr. Rahul Menon</h4>
+                                <p class="text-[10px] sm:text-xs text-slate-500 tracking-wide">Bangalore, KA</p>
                             </div>
                         </div>
                     </div>
@@ -1064,61 +1071,61 @@
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-dark relative overflow-hidden">
+    <section id="contact" class="py-16 sm:py-24 bg-dark relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="bg-[#0B1120] rounded-[2.5rem] border border-slate-800 shadow-2xl overflow-hidden reveal">
+            <div class="bg-[#0B1120] rounded-[1.5rem] sm:rounded-[2.5rem] border border-slate-800 shadow-2xl overflow-hidden reveal">
                 <div class="grid grid-cols-1 lg:grid-cols-2">
                     
                     <!-- Contact Info (Dark Premium) -->
-                    <div class="p-10 md:p-16 relative overflow-hidden">
+                    <div class="p-8 sm:p-10 md:p-16 relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] pointer-events-none"></div>
-                        <h2 class="text-4xl font-heading font-extrabold text-white mb-4 relative z-10">Elevate Your Home.</h2>
-                        <p class="text-slate-400 mb-12 font-light text-lg relative z-10">Book a complimentary water quality analysis with our experts to find the perfect fit for your space.</p>
+                        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mb-3 sm:mb-4 relative z-10">Elevate Your Home.</h2>
+                        <p class="text-slate-400 mb-8 sm:mb-12 font-light text-sm sm:text-lg relative z-10">Book a complimentary water quality analysis with our experts to find the perfect fit for your space.</p>
                         
-                        <div class="space-y-8 relative z-10">
+                        <div class="space-y-6 sm:space-y-8 relative z-10">
                             <div class="flex items-center group">
-                                <div class="flex-shrink-0 h-14 w-14 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/50 transition-all duration-300">
-                                    <i class="fa-solid fa-phone text-slate-400 group-hover:text-primary transition-colors"></i>
+                                <div class="flex-shrink-0 h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/50 transition-all duration-300">
+                                    <i class="fa-solid fa-phone text-slate-400 group-hover:text-primary transition-colors text-sm sm:text-base"></i>
                                 </div>
-                                <div class="ml-6">
-                                    <p class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-1">Concierge Line</p>
-                                    <p class="text-xl font-heading font-medium text-white">1800-123-4567</p>
+                                <div class="ml-4 sm:ml-6">
+                                    <p class="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-widest mb-1">Concierge Line</p>
+                                    <p class="text-lg sm:text-xl font-heading font-medium text-white">1800-123-4567</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-center group">
-                                <div class="flex-shrink-0 h-14 w-14 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/50 transition-all duration-300">
-                                    <i class="fa-solid fa-envelope text-slate-400 group-hover:text-primary transition-colors"></i>
+                                <div class="flex-shrink-0 h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/50 transition-all duration-300">
+                                    <i class="fa-solid fa-envelope text-slate-400 group-hover:text-primary transition-colors text-sm sm:text-base"></i>
                                 </div>
-                                <div class="ml-6">
-                                    <p class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-1">Email Support</p>
-                                    <p class="text-lg font-body font-medium text-white">support@aquapure.in</p>
+                                <div class="ml-4 sm:ml-6">
+                                    <p class="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-widest mb-1">Email Support</p>
+                                    <p class="text-base sm:text-lg font-body font-medium text-white break-all">support@aquapure.in</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Contact Form (Clean Light) -->
-                    <div class="bg-white p-10 md:p-16">
-                        <h3 class="text-2xl font-heading font-bold text-dark mb-8">Request a Consultation</h3>
+                    <div class="bg-white p-8 sm:p-10 md:p-16">
+                        <h3 class="text-xl sm:text-2xl font-heading font-bold text-dark mb-6 sm:mb-8">Request a Consultation</h3>
                         <form id="contactForm" onsubmit="submitForm(event)">
-                            <div class="space-y-6">
+                            <div class="space-y-4 sm:space-y-6">
                                 <div>
-                                    <label for="name" class="block text-sm font-bold text-slate-500 uppercase tracking-wide mb-2">Full Name</label>
-                                    <input type="text" id="name" required class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-0 focus:border-primary focus:bg-white outline-none transition-all font-medium text-dark">
+                                    <label for="name" class="block text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wide mb-1.5 sm:mb-2">Full Name</label>
+                                    <input type="text" id="name" required class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-0 focus:border-primary focus:bg-white outline-none transition-all font-medium text-dark text-sm sm:text-base">
                                 </div>
                                 <div>
-                                    <label for="phone" class="block text-sm font-bold text-slate-500 uppercase tracking-wide mb-2">Phone Number</label>
-                                    <input type="tel" id="phone" required class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-0 focus:border-primary focus:bg-white outline-none transition-all font-medium text-dark">
+                                    <label for="phone" class="block text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wide mb-1.5 sm:mb-2">Phone Number</label>
+                                    <input type="tel" id="phone" required class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-0 focus:border-primary focus:bg-white outline-none transition-all font-medium text-dark text-sm sm:text-base">
                                 </div>
                                 <div>
-                                    <label for="address" class="block text-sm font-bold text-slate-500 uppercase tracking-wide mb-2">Pincode / City</label>
-                                    <input type="text" id="address" required class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-0 focus:border-primary focus:bg-white outline-none transition-all font-medium text-dark">
+                                    <label for="address" class="block text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wide mb-1.5 sm:mb-2">Pincode / City</label>
+                                    <input type="text" id="address" required class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-0 focus:border-primary focus:bg-white outline-none transition-all font-medium text-dark text-sm sm:text-base">
                                 </div>
-                                <button type="submit" class="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg shadow-green-500/20 hover:shadow-green-500/40 mt-4 flex justify-center items-center text-lg">
-                                    <i class="fa-brands fa-whatsapp text-2xl mr-3"></i> Connect via WhatsApp
+                                <button type="submit" class="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-bold py-3.5 sm:py-4 px-4 sm:px-6 rounded-xl transition-all shadow-lg shadow-green-500/20 hover:shadow-green-500/40 mt-2 sm:mt-4 flex justify-center items-center text-sm sm:text-lg">
+                                    <i class="fa-brands fa-whatsapp text-xl sm:text-2xl mr-2 sm:mr-3"></i> Connect via WhatsApp
                                 </button>
-                                <p id="formMessage" class="text-green-600 text-sm text-center hidden mt-3 font-medium">Opening secure chat...</p>
+                                <p id="formMessage" class="text-green-600 text-xs sm:text-sm text-center hidden mt-3 font-medium">Opening secure chat...</p>
                             </div>
                         </form>
                     </div>
@@ -1127,29 +1134,29 @@
         </div>
     </section>
 
-    <footer class="bg-[#060B14] text-slate-400 py-16 border-t border-slate-800">
+    <footer class="bg-[#060B14] text-slate-400 py-12 sm:py-16 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-8 md:mb-0 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-8 md:mb-0">
                     <div class="flex items-center justify-center md:justify-start text-white mb-3 group">
                         <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center shadow-lg shadow-blue-500/30">
                             <i class="fa-solid fa-droplet text-white text-sm"></i>
                         </div>
                         <span class="font-heading font-bold text-2xl tracking-tight ml-2">Aqua<span class="text-primary font-light">Pure</span></span>
                     </div>
-                    <p class="text-sm font-light">Redefining purity for the modern home.</p>
+                    <p class="text-xs sm:text-sm font-light">Redefining purity for the modern home.</p>
                 </div>
                 
-                <div class="flex space-x-8">
-                    <a href="#" class="text-slate-500 hover:text-white transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook text-xl"></i></a>
-                    <a href="#" class="text-slate-500 hover:text-white transition-colors" aria-label="Twitter"><i class="fa-brands fa-twitter text-xl"></i></a>
-                    <a href="#" class="text-slate-500 hover:text-white transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-xl"></i></a>
-                    <a href="#" class="text-slate-500 hover:text-white transition-colors" aria-label="YouTube"><i class="fa-brands fa-youtube text-xl"></i></a>
+                <div class="flex space-x-6 sm:space-x-8">
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook text-lg sm:text-xl"></i></a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors" aria-label="Twitter"><i class="fa-brands fa-twitter text-lg sm:text-xl"></i></a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-lg sm:text-xl"></i></a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors" aria-label="YouTube"><i class="fa-brands fa-youtube text-lg sm:text-xl"></i></a>
                 </div>
             </div>
-            <div class="mt-12 border-t border-slate-800/50 pt-8 flex flex-col md:flex-row justify-between items-center text-xs tracking-wide font-light">
+            <div class="mt-8 sm:mt-12 border-t border-slate-800/50 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs tracking-wide font-light gap-4 md:gap-0">
                 <p>&copy; 2026 AquaPure Systems. Excellence designed in India.</p>
-                <div class="mt-4 md:mt-0 space-x-6">
+                <div class="flex space-x-4 sm:space-x-6">
                     <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
                 </div>
@@ -1163,12 +1170,12 @@
             <!-- Background overlay with blur -->
             <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" aria-hidden="true" onclick="toggleCartModal()"></div>
 
-            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-0 sm:pl-10">
                 <div class="pointer-events-auto w-screen max-w-md transform transition ease-in-out duration-500 sm:duration-700 translate-x-full" id="cartSlidePanel">
                     <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-[auto_-20px_50px_rgba(0,0,0,0.5)]">
-                        <div class="flex-1 overflow-y-auto py-8 px-6">
-                            <div class="flex items-start justify-between border-b border-slate-100 pb-6">
-                                <h2 class="text-2xl font-heading font-bold text-dark" id="slide-over-title">Your Selection</h2>
+                        <div class="flex-1 overflow-y-auto py-6 sm:py-8 px-4 sm:px-6">
+                            <div class="flex items-start justify-between border-b border-slate-100 pb-4 sm:pb-6">
+                                <h2 class="text-xl sm:text-2xl font-heading font-bold text-dark" id="slide-over-title">Your Selection</h2>
                                 <div class="ml-3 flex h-7 items-center">
                                     <button type="button" class="-m-2 p-2 text-slate-400 hover:text-dark transition-colors bg-slate-50 rounded-full hover:bg-slate-100" onclick="toggleCartModal()">
                                         <span class="sr-only">Close panel</span>
@@ -1177,32 +1184,32 @@
                                 </div>
                             </div>
 
-                            <div class="mt-8">
+                            <div class="mt-6 sm:mt-8">
                                 <div class="flow-root">
                                     <ul role="list" class="-my-6 divide-y divide-slate-100" id="cartItemsContainer">
                                         <!-- Cart Items injected via JS -->
-                                        <div id="emptyCartMessage" class="py-20 text-center text-slate-400">
-                                            <i class="fa-solid fa-box-open text-5xl mb-4 text-slate-200"></i>
-                                            <p class="font-medium text-slate-500">Your cart is pristine.</p>
-                                            <p class="text-sm mt-2">Let's add some purity to it.</p>
+                                        <div id="emptyCartMessage" class="py-16 sm:py-20 text-center text-slate-400">
+                                            <i class="fa-solid fa-box-open text-4xl sm:text-5xl mb-4 text-slate-200"></i>
+                                            <p class="font-medium text-slate-500 text-sm sm:text-base">Your cart is pristine.</p>
+                                            <p class="text-xs sm:text-sm mt-2">Let's add some purity to it.</p>
                                         </div>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="border-t border-slate-100 bg-slate-50 py-8 px-6">
-                            <div class="flex justify-between text-lg font-heading font-bold text-dark mb-2">
+                        <div class="border-t border-slate-100 bg-slate-50 py-6 sm:py-8 px-4 sm:px-6">
+                            <div class="flex justify-between text-base sm:text-lg font-heading font-bold text-dark mb-2">
                                 <p>Subtotal</p>
                                 <p id="cartTotal">₹0</p>
                             </div>
-                            <p class="text-xs text-slate-500 font-light tracking-wide mb-6">Shipping & installation included complimentary.</p>
+                            <p class="text-[10px] sm:text-xs text-slate-500 font-light tracking-wide mb-4 sm:mb-6">Shipping & installation included complimentary.</p>
                             <div>
-                                <button onclick="checkout()" class="w-full flex items-center justify-center rounded-xl border border-transparent bg-dark px-6 py-4 text-base font-bold text-white shadow-lg hover:bg-slate-800 transition-colors">
+                                <button onclick="checkout()" class="w-full flex items-center justify-center rounded-xl border border-transparent bg-dark px-4 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-lg hover:bg-slate-800 transition-colors">
                                     Proceed to Secure Checkout
                                 </button>
                             </div>
-                            <div class="mt-6 flex justify-center text-center text-sm text-slate-500">
+                            <div class="mt-4 sm:mt-6 flex justify-center text-center text-xs sm:text-sm text-slate-500">
                                 <p>
                                     or <button type="button" class="font-medium text-primary hover:text-dark transition-colors" onclick="toggleCartModal()">Continue Exploring<span aria-hidden="true"> &rarr;</span></button>
                                 </p>
@@ -1311,26 +1318,26 @@
 
             cart.forEach((item, index) => {
                 const li = document.createElement('li');
-                li.className = 'flex py-8 group';
+                li.className = 'flex py-6 sm:py-8 group';
                 li.innerHTML = `
-                    <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
-                        <i class="fa-solid fa-droplet text-3xl text-primary opacity-80"></i>
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 flex-shrink-0 overflow-hidden rounded-xl sm:rounded-2xl border border-slate-100 bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                        <i class="fa-solid fa-droplet text-2xl sm:text-3xl text-primary opacity-80"></i>
                     </div>
-                    <div class="ml-6 flex flex-1 flex-col justify-between">
+                    <div class="ml-4 sm:ml-6 flex flex-1 flex-col justify-between">
                         <div>
-                            <div class="flex justify-between text-base font-heading font-bold text-dark">
+                            <div class="flex justify-between text-sm sm:text-base font-heading font-bold text-dark">
                                 <h3>${item.name}</h3>
                                 <p class="ml-4">₹${(item.price * item.quantity).toLocaleString('en-IN')}</p>
                             </div>
                         </div>
-                        <div class="flex flex-1 items-end justify-between text-sm">
+                        <div class="flex flex-1 items-end justify-between text-xs sm:text-sm mt-2 sm:mt-0">
                             <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden bg-white">
-                                <button onclick="updateQuantity(${index}, -1)" class="px-3 py-1.5 text-slate-500 hover:bg-slate-100 hover:text-dark transition-colors">-</button>
-                                <span class="px-3 font-bold text-dark">${item.quantity}</span>
-                                <button onclick="updateQuantity(${index}, 1)" class="px-3 py-1.5 text-slate-500 hover:bg-slate-100 hover:text-dark transition-colors">+</button>
+                                <button onclick="updateQuantity(${index}, -1)" class="px-2.5 sm:px-3 py-1 sm:py-1.5 text-slate-500 hover:bg-slate-100 hover:text-dark transition-colors">-</button>
+                                <span class="px-2.5 sm:px-3 font-bold text-dark">${item.quantity}</span>
+                                <button onclick="updateQuantity(${index}, 1)" class="px-2.5 sm:px-3 py-1 sm:py-1.5 text-slate-500 hover:bg-slate-100 hover:text-dark transition-colors">+</button>
                             </div>
                             <div class="flex">
-                                <button type="button" onclick="removeItem(${index})" class="font-bold text-xs text-red-500 hover:text-red-700 uppercase tracking-wider transition-colors">Remove</button>
+                                <button type="button" onclick="removeItem(${index})" class="font-bold text-[10px] sm:text-xs text-red-500 hover:text-red-700 uppercase tracking-wider transition-colors">Remove</button>
                             </div>
                         </div>
                     </div>
@@ -1425,7 +1432,7 @@
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
 
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-3"></i> Connecting...';
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2 sm:mr-3"></i> Connecting...';
             btn.disabled = true;
 
             const whatsappNumber = "917498502005"; 
@@ -1434,7 +1441,7 @@
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
 
             setTimeout(() => {
-                btn.innerHTML = '<i class="fa-brands fa-whatsapp text-2xl mr-3"></i> Connect via WhatsApp';
+                btn.innerHTML = '<i class="fa-brands fa-whatsapp text-xl sm:text-2xl mr-2 sm:mr-3"></i> Connect via WhatsApp';
                 btn.disabled = false;
                 msg.classList.remove('hidden');
                 
